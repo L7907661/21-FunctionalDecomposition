@@ -4,7 +4,7 @@ Hangman.
 Authors: Zeyu Liao and Chen Li.
 """  # done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
-# TODO: 2. Implement Hangman using your Iterative Enhancement Plan.
+# done: 2. Implement Hangman using your Iterative Enhancement Plan.
 
 ####### Do NOT attempt this assignment before class! #######
 import random
@@ -50,15 +50,18 @@ def hangman(words,M):
         if letter in words:
             for i in range(len(words)):
                 if letter == words[i]:
-                    print('Your succeed')
                     empty[i] = letter
+            print('Your succeed')
         else:
             wrongtime = wrongtime -1
             print("Sorry, there is no", letter, 'in the secret word. ')
         print('here is what you currently know about the secret word:')
         print(empty)
+        if '-' not in empty:
+            return print('Your succeed :)')
         if wrongtime == 0:
-            return print(' YOu lose!','The secret word was:',words)
+            return print(' You lose!','The secret word was:',words)
+        print('You can still try', wrongtime, 'times')
 
 
 def play():
